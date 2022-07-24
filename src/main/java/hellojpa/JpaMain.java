@@ -15,13 +15,11 @@ public class JpaMain {
 
         // DB query code
         try {
+            Member member = new Member();
+            member.setUsername("C");
 
-            Member member = em.find(Member.class, 200L);
-            member.setName("AAAA");
+            em.persist(member);
 
-            em.detach(member);
-
-            System.out.println("================");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
